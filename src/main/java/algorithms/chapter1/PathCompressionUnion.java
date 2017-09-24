@@ -1,17 +1,17 @@
-package chapter1;
+package algorithms.chapter1;
 
 import java.util.Scanner;
 
 /**
- * 带权并查集
+ * 压缩路径并查集
  * @auther Fighter Created on 2017/9/22.
  */
-public class WeightedQuickUnion {
+public class PathCompressionUnion {
 
     private int[] id;
     private int[] size;
 
-    private WeightedQuickUnion(int n) {
+    private PathCompressionUnion(int n) {
         this.id = new int[n];
         this.size=new int[n];
         for (int i = 0; i < n; i++) {
@@ -42,11 +42,14 @@ public class WeightedQuickUnion {
     }
 
     /**
+     * 优化：使树变平；
      * @param index 元素下标
      * @return 返回根节点下标
      */
     private int find(int index) {
         while (index != id[index]) {
+
+            id[index] = id[id[index]];//若当前节点非根节点，则使当前节点指向父节点的父节点/或直接指向根节点find(index)
             index = id[index];
         }
         return index;
@@ -65,19 +68,19 @@ public class WeightedQuickUnion {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        WeightedQuickUnion weightedQuickUnion = new WeightedQuickUnion(10);
+        PathCompressionUnion pathCompressionUnion = new PathCompressionUnion(10);
 
         while (scanner.hasNext()) {
 
             int p = scanner.nextInt();
             int q = scanner.nextInt();
 
-            if (!weightedQuickUnion.connected(p, q)) {
-                weightedQuickUnion.weightedUnion(p, q);
+            if (!pathCompressionUnion.connected(p, q)) {
+                pathCompressionUnion.weightedUnion(p, q);
                 System.out.printf("link id[%d] and id[%d]\n", p, q);
             } else {
                 System.out.printf("id[%d] has connected id[%d]\n", p, q);
-                weightedQuickUnion.weightedUnion(p, q);
+                pathCompressionUnion.weightedUnion(p, q);
             }
         }
     }
