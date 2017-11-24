@@ -1,4 +1,4 @@
-package homework.homework1;
+package assignment.assignment1_dc;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class CountingInversion {
     //定义源文件路径
-    private static String DATA_FILE_NAME = "G:\\IdeaProjects\\algorithms\\src\\main\\java\\homework\\Q8.txt";
+    private static String DATA_FILE_NAME = "G:\\IdeaProjects\\algorithms\\src\\main\\java\\assignment\\Q8.txt";
     //定义逆序对数个数
     private static long inversionNum = 0L;
     //源数据

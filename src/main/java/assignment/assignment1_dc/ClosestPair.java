@@ -1,4 +1,4 @@
-package homework.homework1;
+package assignment.assignment1_dc;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -63,7 +63,7 @@ class Point {
 public class ClosestPair {
 
     private static String POINT_FILE_NAME =
-            "G:\\IdeaProjects\\algorithms\\src\\main\\java\\homework\\Q8.txt";
+            "assignment/assignment1_dc/Q8.txt";
     private static int POINTS_NUM_LOW_BOUND = 10;
     private static List<Point> sortXPoints;
     private static List<Point> sortYPoints;

@@ -23,12 +23,13 @@ public class BinarySearch {
 
             int mid = (left + right) / 2;
 
-            if (key > arr[mid])
+            if (key > arr[mid]) {
                 left = mid + 1;
-            else if (key == arr[mid])
+            } else if (key == arr[mid]) {
                 return mid;
-            else
+            } else {
                 right = mid - 1;
+            }
 
         }
         return -1;
