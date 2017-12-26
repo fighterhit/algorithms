@@ -21,7 +21,7 @@ public class BinarySearch {
     private static int BinarySearch(int left, int right, int key, int[] arr) {
         while (left <= right) {
 
-            int mid = (left + right) / 2;
+            int mid = left + (right - left >> 1);
 
             if (key > arr[mid]) {
                 left = mid + 1;
@@ -47,6 +47,7 @@ public class BinarySearch {
 
         Arrays.sort(arr);
 
-        System.out.println(BinarySearch(0, num - 1, 8, arr));
+        int key = scanner.nextInt();
+        System.out.println(BinarySearch(0, num - 1, key, arr));
     }
 }
