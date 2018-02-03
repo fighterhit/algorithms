@@ -165,8 +165,7 @@ public class PushRelabel {
         }
 
         int sum = 0;
-        int[] l = flow[src];
-        for (Integer integer : l) {
+        for (Integer integer : flow[src]) {
             sum += integer;
         }
         return sum;
