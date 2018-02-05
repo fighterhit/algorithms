@@ -40,9 +40,9 @@ public class Quick extends Example {
             }
 
             while (less(v, a[--j])) {
-                if (j == lo) {
+                /*if (j == lo) {
                     break;
-                }
+                }*/
             }
 
             if (i >= j) {
@@ -103,3 +103,54 @@ public class Quick extends Example {
         show(a);
     }
 }
+
+
+class QuickSort {
+    /**
+     * 划分
+     */
+    public static int partition(int[] arr, int left, int right) {
+        int pivotKey = arr[left];
+
+        while (left < right) {
+            while (left < right && arr[right] >= pivotKey) {
+                right--;
+            }
+            arr[left] = arr[right]; //把小的移动到左边
+            while (left < right && arr[left] <= pivotKey) {
+                left++;
+            }
+            arr[right] = arr[left]; //把大的移动到右边
+        }
+        arr[left] = pivotKey; //最后把pivot赋值到中间
+        return left;
+    }
+
+    /**
+     * 递归划分子序列
+     */
+    public static void quickSort(int[] arr, int left, int right) {
+        if (left >= right) {
+            return;
+        }
+        int pivotPos = partition(arr, left, right);
+        quickSort(arr, left, pivotPos - 1);
+        quickSort(arr, pivotPos + 1, right);
+    }
+
+    public static void sort(int[] arr) {
+        if (arr == null || arr.length == 0) {
+            return;
+        }
+        quickSort(arr, 0, arr.length - 1);
+    }
+
+   /* public static void main(String[] args) {
+        int[] a = new int[]{1,100,1,1,100,1,49, 1,38,100, 65, 97, 26, 1,100,13, 27, 49, 55, 4};
+//        int[] a = new int[]{ 2 ,8, 2, 4, 3, 5, 2, 4};
+//        int[] a = new int[] {5,6,3,4,7,2,1,9};
+        quickSort(a,0,a.length - 1);
+        System.out.println(Arrays.toString(a));
+    }*/
+}
+
